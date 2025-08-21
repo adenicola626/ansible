@@ -1,0 +1,13 @@
+---
+- name: Display OS and Hostname
+  hosts: all
+  gather_facts: yes  # Ensure facts are gathered
+
+  tasks:
+    - name: Print OS information
+      debug:
+        msg: "OS Distribution: {{ ansible_distribution }}, Version: {{ ansible_distribution_major_version }}, Family: {{ ansible_os_family }}"
+
+    - name: Print Hostname information
+      debug:
+        msg: "Hostname: {{ ansible_hostname }}, FQDN: {{ ansible_fqdn }}, Inventory Hostname: {{ inventory_hostname }}"
